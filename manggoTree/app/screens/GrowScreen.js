@@ -13,29 +13,19 @@ class HomeScreen extends Component {
 
   constructor(props){
     super(props)
-    this.state = {owner_name:'',tree_name:''}
+
   }
 
   render() {
 
     return (
       <View>
-        <Text>Nama Anda</Text>
-          <TextInput
-            style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-            onChangeText={(owner_name) => this.setState({owner_name})}
-            value={this.state.owner_name}
-          />
-          <Text>Nama Pohon</Text>
-          <TextInput
-            style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-            onChangeText={(tree_name) => this.setState({tree_name})}
-            value={this.state.tree_name}
-          />
+        <Text>This is groot/Text>
+        <Text>he is now 5 year's old</Text>
 
           <Button
           onPress={() => {this.props.startAction(this.state.owner_name,this.state.tree_name)}}
-          title="Start"
+          title="Emulate"
           color="#124434"
           accessibilityLabel="Start Emulator"
         />

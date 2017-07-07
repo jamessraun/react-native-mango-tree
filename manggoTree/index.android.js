@@ -9,7 +9,7 @@ import {App} from './app/router'
 
 import store from './app/store'
 
-class nativeProject extends Component {
+class manggoTree extends Component {
   render() {
     return (
       <Provider store={ store }>
@@ -20,4 +20,4 @@ class nativeProject extends Component {
 }
 
 
-AppRegistry.registerComponent('nativeProject', () => nativeProject);
+AppRegistry.registerComponent('manggoTree', () => manggoTree);
