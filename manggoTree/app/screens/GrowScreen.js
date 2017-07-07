@@ -20,24 +20,41 @@ class GrowScreen extends Component {
     this.props.growAction(age)
   }
 
+
   render(){
   console.log(this.props);
     const {age,fruits,owner_name,tree_name} = this.props
-    return (
-      <View>
-        <Text>This is {tree_name}</Text>
-        <Text>he is now {age} year's old</Text>
 
-          <Button
-          onPress={() => {this.growTree(age)}}
-          title="Emulate"
-          color="#124434"
-          accessibilityLabel="Start Emulator"
-        />
+    if(age<25){
+      return (
+        <View>
+          <Text>This is {tree_name}</Text>
+          <Text>he is now {age} year's old</Text>
 
-      </View>
-    );
+          {(age>=15) ? (
+          <View>
+            <Text>Produces {fruits} fruits</Text>
+            <Button
+              onPress={() => {this.props.harvestAction(age)}}
+              title="Harvest"
+              color="#124434"
+              accessibilityLabel="Start Harvest"
+            />
+          </View>) : null}
 
+            <Button
+            onPress={() => {this.growTree(age)}}
+            title="Emulate"
+            color="#124434"
+            accessibilityLabel="Start Emulator"
+          />
+
+        </View>
+      );
+    }else {
+      // this.props.navigation.navigate('Dead')
+      return(<View><Text>Dead</Text></View>)
+    }
   }
 }
 
@@ -54,7 +71,8 @@ const mapStateToProps = ({manggosReducer}) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    growAction: () => dispatch(growAction())
+    growAction: (age) => dispatch(growAction(age)),
+    harvestAction: () => dispatch(harvestAction())
   }
 }
 

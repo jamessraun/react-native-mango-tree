@@ -1,8 +1,9 @@
-export const growAction = () => {
-
-  if(age>15){
+export const growAction = (age) => {
+console.log('actionss---',age);
+  if(age>5){
+    console.log(Math.floor((Math.random()*10)+1));
     return {
-      type:'ADD_AGE',
+      type:'GROW',
       payload:{
         age:5,
         fruits:Math.floor((Math.random()*10)+1),
@@ -10,9 +11,9 @@ export const growAction = () => {
     }
   }else {
     return {
-      type:'ADD_AGE',
+      type:'GROW',
       payload:{
-        age:5
+        age:5,
         fruits:0
       }
     }
