@@ -25,7 +25,7 @@ class GrowScreen extends Component {
   console.log(this.props);
     const {age,fruits,owner_name,tree_name} = this.props
 
-    if(age<25){
+    if(age<20){
       return (
         <View>
           <Text>This is {tree_name}</Text>

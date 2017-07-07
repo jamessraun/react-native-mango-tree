@@ -5,7 +5,7 @@ console.log('actionss---',age);
     return {
       type:'GROW',
       payload:{
-        age:5,
+        age:2,
         fruits:Math.floor((Math.random()*10)+1),
       }
     }
