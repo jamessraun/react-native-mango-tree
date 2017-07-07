@@ -31,7 +31,7 @@ class GrowScreen extends Component {
           <Text>This is {tree_name}</Text>
           <Text>he is now {age} year's old</Text>
 
-          {(age>=15) ? (
+          {(age>=5) ? (
           <View>
             <Text>Produces {fruits} fruits</Text>
             <Button
