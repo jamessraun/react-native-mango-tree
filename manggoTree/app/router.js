@@ -2,6 +2,7 @@ import React from 'react';
 import { StackNavigator } from 'react-navigation';
 
 import HomeScreen from './screens/HomeScreen'
+import GrowScreen from './screens/GrowScreen'
 
 export const App = StackNavigator({
   Home: {
@@ -9,5 +10,11 @@ export const App = StackNavigator({
     navigationOptions: {
       title:'Welcome',
     }
-  }
+  },
+  Grow: {
+    screen:GrowScreen,
+    navigationOptions: {
+      title:'Growing',
+    }
+  },
 })

@@ -16,6 +16,12 @@ class HomeScreen extends Component {
     this.state = {owner_name:'',tree_name:''}
   }
 
+
+  startEmulation(owner_name,tree_name){
+    this.props.startAction(owner_name,tree_name)
+    this.props.navigation.navigate('Grow')
+  }
+
   render() {
 
     return (
@@ -34,7 +40,7 @@ class HomeScreen extends Component {
           />
 
           <Button
-          onPress={() => {this.props.startAction(this.state.owner_name,this.state.tree_name)}}
+          onPress={() => {this.startEmulation(this.state.owner_name,this.state.tree_name)}}
           title="Start"
           color="#124434"
           accessibilityLabel="Start Emulator"
@@ -48,15 +54,12 @@ class HomeScreen extends Component {
 
 
 const mapStateToProps = (state) => {
-  // console.log('state-----',state);
+
   return {
-    // age:state.manggosReducers.age,
-    // fruits:state.manggosReducers.fruits
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  console.log('dispatch----',dispatch);
   return {
     startAction: (owner_name,tree_name) => dispatch(startAction(owner_name,tree_name))
   }

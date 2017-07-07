@@ -7,24 +7,29 @@ import {
   Button
 } from 'react-native';
 
-import { startAction } from '../actions/startAction'
-
-class HomeScreen extends Component {
+import { growAction } from '../actions/growAction'
+import { harvestAction } from '../actions/harvestAction'
+class GrowScreen extends Component {
 
   constructor(props){
     super(props)
 
   }
 
-  render() {
+  growTree(age){
+    this.props.growAction(age)
+  }
 
+  render(){
+  console.log(this.props);
+    const {age,fruits,owner_name,tree_name} = this.props
     return (
       <View>
-        <Text>This is groot/Text>
-        <Text>he is now 5 year's old</Text>
+        <Text>This is {tree_name}</Text>
+        <Text>he is now {age} year's old</Text>
 
           <Button
-          onPress={() => {this.props.startAction(this.state.owner_name,this.state.tree_name)}}
+          onPress={() => {this.growTree(age)}}
           title="Emulate"
           color="#124434"
           accessibilityLabel="Start Emulator"
@@ -37,19 +42,20 @@ class HomeScreen extends Component {
 }
 
 
-const mapStateToProps = (state) => {
-  // console.log('state-----',state);
+const mapStateToProps = ({manggosReducer}) => {
+
   return {
-    // age:state.manggosReducers.age,
-    // fruits:state.manggosReducers.fruits
+    age:manggosReducer.age,
+    fruits:manggosReducer.fruits,
+    owner_name:manggosReducer.owner_name,
+    tree_name:manggosReducer.tree_name,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  console.log('dispatch----',dispatch);
   return {
-    startAction: (owner_name,tree_name) => dispatch(startAction(owner_name,tree_name))
+    growAction: () => dispatch(growAction())
   }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(HomeScreen);
+export default connect(mapStateToProps,mapDispatchToProps)(GrowScreen);
